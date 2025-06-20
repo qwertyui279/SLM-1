@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载皮肤 - SLM服务器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载皮肤 - SLM服务器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('images/eee.jpg'); background-size: cover;">
+</head>
+<style>
+    /* 全局样式 */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    /* 下载卡片容器 */
+    .download-container {
+        max-width: 100%;
+        margin: 30px auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    /* 文件预览区 */
+    .file-preview {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        text-align: center;
+        padding: 30px 0;
+        color: white;
+    }
+    .file-icon {
+        font-size: 60px;
+        margin-bottom: 15px;
+    }
+    .file-name {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 20px;
+    }
+
+    /* 文件信息区 */
+    .file-info {
+        padding: 20px;
+    }
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .info-label {
+        color: #777;
+    }
+    .info-value {
+        font-weight: 500;
+    }
+
+    /* 下载按钮 */
+    .download-btn {
+        display: block;
+        margin: 25px auto;
+        padding: 15px 30px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        width: 80%;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        transition: all 0.3s;
+    }
+    .download-btn:hover {
+        background: #0069d9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+    }
+    .download-btn i {
+        margin-left: 8px;
+    }
+
+    /* 返回链接 */
+    .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        color: #007bff;
+        text-decoration: none;
+    }
+    .back-link i {
+        margin-right: 5px;
+    }
+
+    /* 加载动画 */
+    .loading {
+        display: none;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #007bff;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 480px) {
+        .download-btn {
+            width: 90%;
+            padding: 12px 25px;
+        }
+    }
+</style>
+<body>
+    <div class="download-container">
+        <!-- 文件预览区 -->
+        <div class="file-preview">
+            <div class="file-icon">
+                <i class="fas fa-file-archive"></i>
+            </div>
+            <div class="file-name">外挂.zip</div>
+        </div>
+
+        <!-- 文件信息区 -->
+        <div class="file-info">
+            <div class="info-row">
+                <span class="info-label">文件大小</span>
+                <span class="info-value"未知</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">文件版本</span>
+                <span class="info-value">未知</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">更新时间</span>
+                <span class="info-value">未知</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">下载次数</span>
+                <span class="info-value" id="downloadCount">未知</span>
+            </div>
+        </div>
+
+        <!-- 下载按钮 -->
+        <a href="Download/外挂.zip" download="外挂.zip" class="download-btn" id="downloadBtn">
+            立即下载 <i class="fas fa-download"></i>
+        </a>
+
+        <!-- 加载动画 -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>正在准备下载...</p>
+        </div>
+    </div>
+
+    <!-- 返回链接 -->
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> 返回首页
+    </a>
+    <script>
+        // 模拟下载计数增加
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            // 显示加载动画
+            document.getElementById('loading').style.display = 'block';
+            
+            // 模拟网络延迟（实际使用时可以删除）
+            setTimeout(function() {
+                // 增加下载计数显示
+                const countElement = document.getElementById('downloadCount');
+                let count = parseInt(countElement.textContent.replace(/,/g, ''));
+                countElement.textContent = (count + 1).toLocaleString();
+                
+                // 隐藏加载动画
+                document.getElementById('loading').style.display = 'none';
+                
+                // 实际下载由浏览器自动处理（href已指向文件）
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
