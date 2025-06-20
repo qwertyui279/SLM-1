@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+</head>
+<body style="background-image: url('images/eee.jpg'); background-size: cover;">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LittleSkin - 快速可靠的Minecraft皮肤站</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+      /* 页面整体布局 */
+body {
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    line-height: 1.6;
+}
+/* 顶部标题区域 - 占满整个视口高度 */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* 主标题样式 */
+.main-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+/* 副标题样式 */
+.subtitle {
+    font-size: 1.8rem;
+    color: #7f8c8d;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+/* 注册按钮样式 */
+.cta-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background-color: #43A047;
+}
+      /* 分隔空间 - 创建大间距 */
+.spacer {
+    height: 150px;
+    width: 100%;
+}
+
+/* 特性介绍区域 */
+.features-container {
+    width: 100%;
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+/* 特性区域内容 */
+.features-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+/* 特性标题 */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #2c3e50;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #4CAF50;
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* 特性列表 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+/* 单个特性卡片 */
+.feature-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 特性图标 */
+.feature-icon {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 1.5rem;
+}
+      /* 特性标题 */
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+/* 特性描述 */
+.feature-description {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+/* 描述文本区域 */
+        .description-section {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .description-text {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        /* 开始使用按钮 */
+        .start-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            width: 100%;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部标题区域 -->
+    <section class="hero-section">
+        <h1 class="main-title">SLM服务器</h1>
+        <p class="subtitle">性能拉胯，插件随到</p>
+     <a href="abc.html" class="cta-button home-button">首页</a>
+
+
+
+    </div>
+</section>
+    </section>
+    
+
+    <div class"spacer"></div>
+    
+    <!-- 特性介绍区域 -->
+    <section class="features-container">
+        <div class="features-content">
+            <h2 class="section-title">SLM服务器</h2>
+            
+            <div class="features-grid">
+                <!-- 特性1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">✔</div>
+                    <h3 class="feature-title">插件</h3>
+                    <p class="feature-description">除非内存不够<br>不然一定能行！</p>
+                </div>
+                
+                <!-- 特性2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">✔</div>
+                    <h3 class="feature-title">公益免费</h3>
+                    <p class="feature-description"﹥垃面板服<br公益是肯定的</p>
+                </div>
+                
+                <!-- 特性3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">√×</div>
+                    <h3 class="feature-title">稳定可靠</h3>
+                    <p class="feature-description"除了特殊情况</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 描述区域 -->
+    <section class="description-section">
+        <p class="description-text">
+         外挂，有了这些，你就是服务器里的王！没有人可以争服你，快去试试吧！
+        </p>
+        <a href="acb.html" class="cta-button home-button">下载</a>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        到头了:
+    </footer>
+</body>
+</html>
